@@ -3,7 +3,7 @@ package fixture
 import (
 	"fmt"
 
-	"github.com/iFaceless/fixture/exporters"
+	"github.com/marshalys/fixture/exporters"
 )
 
 type Exporter interface {

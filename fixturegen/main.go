@@ -11,7 +11,7 @@ import (
 
 	"github.com/go-errors/errors"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/iFaceless/fixture"
+	"github.com/marshalys/fixture"
 )
 
 var (

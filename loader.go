@@ -3,7 +3,7 @@ package fixture
 import (
 	"fmt"
 
-	"github.com/iFaceless/fixture/loaders"
+	"github.com/marshalys/fixture/loaders"
 )
 
 type Loader interface {

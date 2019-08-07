@@ -34,6 +34,18 @@ type ExportContent struct {
 	Rows    []*SortedMap `json:"rows" yaml:"rows"`
 }
 
+func getFieldText(val []byte) interface{} {
+	if len(val) == 1 {
+		chr := val[0]
+		if chr == 0 {
+			return false
+		} else if chr == 1 {
+			return true
+		}
+	}
+	return string(val)
+}
+
 func genExportContent(tableName string, columns []string, rawRows [][][]byte) *ExportContent {
 	content := &ExportContent{
 		Table:   tableName,
@@ -48,7 +60,7 @@ func genExportContent(tableName string, columns []string, rawRows [][][]byte) *E
 			if val == nil {
 				row.Set(col, nil)
 			} else {
-				row.Set(col, string(val))
+				row.Set(col, getFieldText(val))
 			}
 		}
 		rows = append(rows, row)

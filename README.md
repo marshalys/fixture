@@ -3,7 +3,7 @@ FIXTURE, easily load or export test fixtures
 
 [![Build Status](https://travis-ci.com/iFaceless/fixture.svg?branch=master)](https://travis-ci.com/iFaceless/fixture)
 [![Coverage Status](https://coveralls.io/repos/github/iFaceless/fixture/badge.svg?branch=master)](https://coveralls.io/github/iFaceless/fixture?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/iFaceless/fixture)](https://goreportcard.com/report/github.com/iFaceless/fixture)
+[![Go Report Card](https://goreportcard.com/badge/github.com/marshalys/fixture)](https://goreportcard.com/report/github.com/marshalys/fixture)
 
 ```
   __ _      _
@@ -48,7 +48,7 @@ FIXTURE, easily load or export test fixtures
 # 安装
 
 ```sh
-go get -u github.com/iFaceless/fixture
+go get -u github.com/marshalys/fixture
 ```
 
 # 示例
@@ -77,7 +77,7 @@ configs
 └── fixture.go
 ```
 
-在 `fixture.go` 中添加下面的代码，方便 [fixture](https://github.com/iFaceless/fixture) 启动时知道去哪儿读取 schema 和测试数据配置：
+在 `fixture.go` 中添加下面的代码，方便 [fixture](https://github.com/marshalys/fixture) 启动时知道去哪儿读取 schema 和测试数据配置：
 
 ```golang
 func NewDefaultTestFixture() *fixture.TestFixture {
@@ -142,12 +142,12 @@ func (s *SuiteExampleTester) TestBar() {
 
 # 导出
 
-啊，我不想一开始就手写 YAML/JSON/SQL！我希望能利用测试环境中的数据，然后再在输出结果的基础上修改为想要的测试数据！没问题，[fixture](https://github.com/iFaceless/fixture) 目前已经支持导出数据为这三种格式啦！
+啊，我不想一开始就手写 YAML/JSON/SQL！我希望能利用测试环境中的数据，然后再在输出结果的基础上修改为想要的测试数据！没问题，[fixture](https://github.com/marshalys/fixture) 目前已经支持导出数据为这三种格式啦！
 
 ## 安装
 
 ```shell
-$ go get github.com/iFaceless/fixture/fixturegen
+$ go get github.com/marshalys/fixture/fixturegen
 ```
 
 检查下是否安装正确（确保你的 $GOPATH 在 $PATH 环境变量中！）
@@ -196,7 +196,7 @@ $ fixturegen -url mysql://localhost:3306/test_todo_api -t user -q "SELECT * FROM
 
 - `TestFixture.New`: 新建 `TestFixture` 实例，需要用户提供数据库、测试数据配置
 - `TestFixture.Use`: 使用指定表的测试数据填充到测试数据库对应表中
-- `TestFixture.DropTables`: 用于测试结束后删除测试表（注意，[fixture](https://github.com/iFaceless/fixture) 工具不会随意自动删除表，所以作为用户的你需要显式调用才会删除表）
+- `TestFixture.DropTables`: 用于测试结束后删除测试表（注意，[fixture](https://github.com/marshalys/fixture) 工具不会随意自动删除表，所以作为用户的你需要显式调用才会删除表）
 - `TestFixture.TableNames`: 通过 `schema.sql` 读取到的所有表名
 - `TestFixture.Config`: 可以获取详细配置信息
 - `Scope.Clear`: 用于某个单元测试结束后，清空表数据
